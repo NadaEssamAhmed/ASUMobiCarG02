@@ -1,0 +1,28 @@
+const int buzzerPin = 13;
+const int lightPin = 2;
+const int pirSensor = 7;
+int moveDetect, lightBulb;
+void setup()
+{
+  pinMode(buzzerPin, OUTPUT);
+  pinMode(pirSensor, INPUT);
+  pinMode(lightPin, INPUT);
+}
+void loop()
+{
+  moveDetect = digitalRead(pirSensor);    //Check if there is movement ( 1 or 0 )
+  lightBulb = digitalRead(lightPin);      //Check if there is Light in the room ( 1 or 0 )
+  if (moveDetect == 1)                    // if there is movement
+  {
+    if ( lightBulb == 0)                  // and in there is no light in the room
+    {
+      digitalWrite(buzzerPin, HIGH);      // turn on the buzzer alarm
+      delay(500);
+    }
+  }
+  else
+  {
+    digitalWrite(buzzerPin, LOW);         // otherwise stop the buzzer alarm
+  }
+  delay(100);
+}
