@@ -1,0 +1,90 @@
+#define duration 5000 
+
+#define A 2, B 3, C 4, D 5, E 6, F 7,G 8, DP 9;
+
+#define disp1 10, disp2 11, disp3 12, disp4 13;
+
+#define numbersegments { \
+{1,1,1,1,1,1,0,0},\
+{0,1,1,0,0,0,0,0},\
+{1,1,0,1,1,0,1,0},\
+{1,1,1,1,0,0,1,0},\
+{0,1,1,0,0,1,1,0},\
+{1,0,1,1,0,1,1,0},\
+{1,0,1,1,1,1,1,0},\
+{1,1,1,0,0,0,0,0},\
+{1,1,1,1,1,1,1,0},\
+{1,1,1,0,0,1,1,0},\
+}
+
+byte numbers[10][8] = numbersegments; 
+const int segments[8] = {A, B, C, D, E, F, G, DP};
+
+void setup() 
+{ 
+  pinMode(A, OUTPUT);
+  pinMode(B, OUTPUT);
+  pinMode(C, OUTPUT);
+  pinMode(D, OUTPUT);
+  pinMode(E, OUTPUT);
+  pinMode(F, OUTPUT);
+  pinMode(G, OUTPUT);
+  pinMode(DP, OUTPUT);
+  pinMode(disp1, OUTPUT);
+  pinMode(disp2, OUTPUT);  
+  pinMode(disp3, OUTPUT);
+  pinMode(disp4, OUTPUT);
+  digitalWrite(A, LOW);
+  digitalWrite(B, LOW);
+  digitalWrite(C, LOW);
+  digitalWrite(D, LOW);
+  digitalWrite(E, LOW);
+  digitalWrite(F, LOW);
+  digitalWrite(G, LOW);
+  digitalWrite(DP, LOW);
+  digitalWrite(disp1, LOW);
+  digitalWrite(disp2, LOW);
+  digitalWrite(disp3, LOW);
+  digitalWrite(disp4, LOW);
+ } 
+
+ void loop()
+ { 
+  for (int digit4=0; digit4<10; digit4++)
+  { 
+    for (int digit3=0; digit3<10; digit3++)
+     { 
+       for (int digit2=0; digit2<10; digit2++)
+        { 
+          for (int digit1=0; digit1<10; digit1++)
+           { 
+             for (int t=0; t<30; t++)
+              { 
+                setsegments(digit1, disp1, duration);
+                setsegments(digit2, disp2, duration);
+                setsegments(digit3, disp3, duration);
+                setsegments(digit4, disp4, duration);
+               }
+            }
+         }
+      }
+   }
+ }        
+
+  void setsegments(int number, int digit, int ontime)
+  { 
+    for (int seg=0; seg<8; seg++)
+    { 
+      if(numbers[number][seg]==1)
+      { 
+        digitalWrite(segments[seg], HIGH);
+      }
+      else 
+      {
+        digitalWrite(segments[seg], LOW);
+      }
+    }
+    digitalWrite(digit, HIGH);
+    delayMicroseconds(ontime);
+    digitalWrite(digit, LOW);
+  }
