@@ -7,9 +7,9 @@ AF_DCMotor motor4 (4, MOTOR12_1KHZ);
 int left=A3;
 int center=A4;
 int right=A5;
-int Left=0;
-int Center=0;
-int Right=0;
+int Left=1;
+int Center=1;
+int Right=1;
 void setup() {
 pinMode(left,INPUT);
 pinMode(center,INPUT);
@@ -19,18 +19,18 @@ void loop() {
 Left=digitalRead(left);
 Center=digitalRead(center);
 Right=digitalRead(right);
-if((Left==1 && Center==1 && Right==1) || (Left==0 &&
-Center==1 && Right==0) || (Left==1 && Center==0 &&
-Right==1) )
-forward_car();
-else if(Left==1 && Center==1 && Right==0)
-right_car();
+if(Left==1 && Center==1 && Right==1)
+  forward_car();
+else if(Left==1 && Center==0 && Right==0)
+  right_car();
 else if (Left==1 && Center==1 && Right==0)
-forward_right_car();
-else if(Left==0 && Center==1 && Right==1)
-left_car();
+  forward_right_car();
 else if(Left==0 && Center==0 && Right==1)
-forward_left_car();
+  left_car();
+else if(Left==0 && Center==1 && Right==1)
+  forward_left_car();
+else if((Left=0 &&Center==0 &&Right==0)||(Left==0 && Center==1 &&Right==0)||(Left==1 && Center==0 &&Right==1))
+  moveStop();
 }
 void forward_car()
 {
@@ -67,5 +67,11 @@ motor1.run(RELEASE);
 motor2.run(FORWARD);
 motor3.run(FORWARD);
 motor4.run(RELEASE);
+}
+void moveStop(){
+  motor1.run(RELEASE);
+  motor2.run(RELEASE);
+  motor3.run(RELEASE);
+  motor4.run(RELEASE);
 }
 Last modified: 00:59
