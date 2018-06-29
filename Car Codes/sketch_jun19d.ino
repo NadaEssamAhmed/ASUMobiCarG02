@@ -21,7 +21,7 @@ void loop(){
   if (Serial.available()>0){
     d=Serial.parseFloat();
 period=d*1000/v;
-for(int i=0;i<period;i++){
+for(int i=0;i<period;i=i+1000){
   forward_car();
   delay(1000);
   
