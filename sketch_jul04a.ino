@@ -1,6 +1,4 @@
 
- 
-// Include the TimerOne Library from Paul Stoffregen
 #include "TimerOne.h"
 // include the library code:
 #include <LiquidCrystal.h>
