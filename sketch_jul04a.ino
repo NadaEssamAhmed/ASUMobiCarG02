@@ -39,11 +39,7 @@ void ISR_timerone()
   Serial.print("\n");
   Serial.print(counter1);
   counter1 = 0;  //  reset counter to zero
- // Serial.print("Motor Speed 2: "); 
-  //float rotation2 = (counter2 / diskslots) * 60.00;  // calculate RPM for Motor 2
-  //Serial.print(rotation2);  
-  //Serial.println(" RPM"); 
-  //counter2 = 0;  //  reset counter to zero
+ 
   Timer1.attachInterrupt( ISR_timerone );  // Enable the timer
   // Print a message to the LCD.
   lcd.print(rotation1);
@@ -56,7 +52,6 @@ void setup()
   
   Timer1.initialize(1000000); // set timer for 1sec
   attachInterrupt(digitalPinToInterrupt (MOTOR1), ISR_count1, RISING);  // Increase counter 1 when speed sensor pin goes High
-  //attachInterrupt(digitalPinToInterrupt (MOTOR2), ISR_count2, RISING);  // Increase counter 2 when speed sensor pin goes High
   Timer1.attachInterrupt( ISR_timerone ); // Enable the timer
   // set up the LCD's number of columns and rows:
   lcd.begin(16, 2);
