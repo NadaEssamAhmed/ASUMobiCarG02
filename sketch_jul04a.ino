@@ -7,11 +7,9 @@
 // Change values if not using Arduino Uno
  
 const byte MOTOR1 = 2;  // Motor 1 Interrupt Pin - INT 0
-//const byte MOTOR2 = 3;  // Motor 2 Interrupt Pin - INT 1
  
 // Integers for pulse counters
 unsigned int counter1 = 0;
-//unsigned int counter2 = 0;
  int sp=180;
 // Float for number of slots in encoder disk
 float diskslots = 20;  // Change to match value of encoder disk
@@ -29,11 +27,6 @@ void ISR_count1()
   counter1++;  // increment Motor 1 counter value
 } 
  
-// Motor 2 pulse count ISR
-/*void ISR_count2()  
-{
-  counter2++;  // increment Motor 2 counter value
-} */
  
 // TimerOne ISR
 void ISR_timerone()
