@@ -1,4 +1,5 @@
-
+float d;
+float period; 
 if (h=='g') {
 while(1){
 if(Serial.available()>0){
