@@ -107,7 +107,7 @@
       delay(1200);
       }stop_car();
     }//}
-  if(h=='Z'){
+  /*if(h=='Z'){
   //while(1){
   for(int i=0;i<4;i++){
       forward_car();
@@ -140,7 +140,7 @@
     left_car();
   delay(300);
   }stop_car();
-  }
+  }*/
   
   if(h=='V') {
   while(1){
