@@ -1,12 +1,4 @@
-/*  
- Optical Sensor Two Motor Demonstration
- DualMotorSpeedDemo.ino
- Demonstrates use of Hardware Interrupts
- to measure speed from two motors
- 
- DroneBot Workshop 2017
- http://dronebotworkshop.com
-*/
+
  
 // Include the TimerOne Library from Paul Stoffregen
 #include "TimerOne.h"
