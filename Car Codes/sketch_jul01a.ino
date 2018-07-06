@@ -2,7 +2,6 @@
   #include <Servo.h> //add Servo Motor library
   #include <NewPing.h> //add Ultrasonic sensor library
   #include "TimerOne.h"
-  //#include <RedBot.h> //add Line Follower sensor library
   AF_DCMotor motor1 (1, MOTOR12_1KHZ); //create motor #1 using M1 output on Motor Drive Shield, set to 1kHz PWM frequency
   AF_DCMotor motor2 (2, MOTOR12_1KHZ); //create motor #2 using M2 output on Motor Drive Shield, set to 1kHz PWM frequency
   AF_DCMotor motor3 (3, MOTOR12_1KHZ); //create motor #1 using M1 output on Motor Drive Shield, set to 1kHz PWM frequency
